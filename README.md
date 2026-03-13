@@ -45,7 +45,7 @@ python app.py
 
 ---
 
-## 🧠 Day 1 Concepts in This Code
+## 🧠 Concepts in This Code
 
 | Concept | Where in Code |
 |---|---|

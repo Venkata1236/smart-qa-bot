@@ -46,12 +46,14 @@ st.divider()
 with st.sidebar:
     st.header("⚙️ Settings")
 
-    api_key = st.text_input(
-        "OpenAI API Key",
-        type="password",
-        placeholder="sk-...",
-        help="Get your key from platform.openai.com"
-    )
+    import os
+    from dotenv import load_dotenv
+    import streamlit as st
+
+    load_dotenv()
+
+    # Works locally (.env) AND on Streamlit Cloud (secrets)
+    api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY", "")
 
     st.divider()
 
@@ -102,7 +104,7 @@ user_input = st.chat_input("Ask anything...")
 
 if user_input:
     if not api_key:
-        st.error("❌ Please enter your OpenAI API Key in the sidebar.")
+        st.error("❌ API key not found. Please check your .env file.")
         st.stop()
 
     # Show user message

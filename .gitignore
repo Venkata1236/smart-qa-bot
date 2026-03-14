@@ -2,3 +2,5 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+python -m streamlit run streamlit_app.py
